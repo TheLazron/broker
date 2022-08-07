@@ -5,6 +5,7 @@ import {ReactComponent as ArrowRightIcon} from '../assets/svg/keyboardArrowRight
 import visibilityIcon from '../assets/svg/visibilityIcon.svg';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import OAuth from '../components/OAuth';
 
 function SignIn(){
 
@@ -34,6 +35,7 @@ const onSubmit = async e=>{
   const userCreds = await signInWithEmailAndPassword(auth, email, password)
     console.log("signed in user", userCreds);
   if(userCreds.user){
+    toast.success("Logged in  successfully!")
     navigate('/')
   }
 
@@ -94,7 +96,7 @@ catch(err){
           </div>
         </form>
 
-        {/* Google OAuth */}
+        <OAuth/>
 
         <Link to='/sign-up' className='registerLink'>
           Sign Up Instead
