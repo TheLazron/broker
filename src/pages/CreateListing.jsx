@@ -189,10 +189,21 @@ const {
 })
 console.log(imageUrls);
 
+const formDataCopy={...formData,
+   imageUrls, 
+   geolocation, 
+   timestamp: serverTimestamp()}
 
-
-
-setLoading(false);
+   delete formDataCopy.images;
+   delete formDataCopy.address;
+   location && (formDataCopy.location = location);
+   console.log("formDataCopy",formDataCopy);
+   !formDataCopy.offer && delete formDataCopy.discountedPrice;
+  
+   const docRef = await addDoc(collection(db, 'listings'), formDataCopy);
+  setLoading(false);
+  toast.success("Place Listed Successfully");
+  navigate(`/category/${formDataCopy.data}/${docRef.id}`)
 
 }
 
