@@ -5,6 +5,7 @@ import Profile from './pages/Profie';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SingUp';
 import Category from './pages/Category';
+import CreateListing from './pages/CreateListing';
 import PrivateRoute from './components/PrivateRoute';
 import ForgotPassword from './pages/ForgotPassword';
 import Navbar from './components/Navbar';
@@ -22,6 +23,7 @@ function App() {
             <Route path="/profile" element={<Profile/>}/>
           </Route>
           <Route path="/sign-in" element={<SignIn/>}/>
+          <Route path="/create-listing" element={<CreateListing/>}/>
           <Route path="/sign-up" element={<SignUp/>}/>
           <Route path="/forgot-password" element={<ForgotPassword/>}/>
 
