@@ -194,9 +194,9 @@ const formDataCopy={...formData,
    geolocation, 
    timestamp: serverTimestamp()}
 
+   formDataCopy.location = address
    delete formDataCopy.images;
    delete formDataCopy.address;
-   location && (formDataCopy.location = location);
    console.log("formDataCopy",formDataCopy);
    !formDataCopy.offer && delete formDataCopy.discountedPrice;
   
