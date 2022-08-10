@@ -4,8 +4,8 @@ import bedIcon from '../assets/svg/bedIcon.svg';
 
 import bathtubIcon from '../assets/svg/bathtubIcon.svg'
 
-function ListingItem({ listing, id}) {
-  console.log("isnide listing",listing);
+function ListingItem({ listing, id, onDelete}) {
+  console.log("isnide listing", onDelete);
   return (
     <li className='categoryListing'>
       <Link
@@ -49,13 +49,13 @@ function ListingItem({ listing, id}) {
         </div>
       </Link>
 
-      {/* {onDelete && (
+      {onDelete && (
         <DeleteIcon
           className='removeIcon'
           fill='rgb(231, 76,60)'
-        //   onClick={() => onDelete(listing.id, listing.name)}
+          onClick={() => onDelete(listing.id, listing.name)}
         />
-      )} */}
+      )}
     </li>
   )
 }

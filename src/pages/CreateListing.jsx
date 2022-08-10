@@ -165,13 +165,17 @@ const {
               }
             },
             (error) => {
+              console.log(error);
               reject(error)
+              
+              toast.error("failed new")
             },
             () => {
               // Handle successful uploads on complete
               // For instance, get the download URL: https://firebasestorage.googleapis.com/...
               getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                 resolve(downloadURL)
+                console.log("url",downloadURL);
               })
             }
           )
@@ -180,7 +184,11 @@ const {
 
    console.log("images", images);
    const imageUrls = await Promise.all(
-    [...images].map((image)=>storeImage(image))
+    [...images].map((image)=>{
+      console.log("image", image);
+      return storeImage(image)
+    
+})
 
 ).catch(()=>{
     setLoading(false);
